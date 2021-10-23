@@ -1,4 +1,5 @@
 export class Medicos {
   id!: number;
-  nome!: string ;
+  nome!: string;
+  especialidade!: string;
 }

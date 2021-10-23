@@ -34,9 +34,4 @@ export class MedicoOneComponent implements OnInit {
   back() {
     this.router.navigate(['/medicos'])
   }
-
-  getEspecialidade(id: number){
-    this.especialidades[id]
-  }
-
 }

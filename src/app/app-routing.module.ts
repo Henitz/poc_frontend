@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'medicos/medico-list', component: MedicoListComponent},
-  {path: 'medicos/medico-one', component: MedicoOneComponent},
-  {path: 'medicos/medico-form', component: MedicoFormComponent}
+  {path: '', redirectTo: 'medicos', pathMatch: 'full'},
+  {path: 'medicos', component: MedicoListComponent},
+  {path: 'medicos/:id', component: MedicoOneComponent},
+  {path: 'medicos/form', component: MedicoFormComponent}
 ];
 
 @NgModule({
