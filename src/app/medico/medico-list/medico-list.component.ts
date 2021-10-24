@@ -55,8 +55,4 @@ export class MedicoListComponent implements OnInit {
   alterar(id: number) {
     this.router.navigate(['/medicos/medico-form/' + id])
   }
-
-  form() {
-    this.router.navigate(['/medicos/medico-form'])
-  }
 }

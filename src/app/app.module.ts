@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MedicoListComponent } from './medico/medico-list/medico-list.component';
 import { MedicoOneComponent } from './medico/medico-one/medico-one.component';
-import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RemedioFormComponent } from './remedio/remedio-form/remedio-form.component';
@@ -18,6 +17,7 @@ import { PacienteOneComponent } from './paciente/paciente-one/paciente-one.compo
 import { ConsultaFormComponent } from './consulta/consulta-form/consulta-form.component';
 import { ConsultaListComponent } from './consulta/consulta-list/consulta-list.component';
 import { ConsultaOneComponent } from './consulta/consulta-one/consulta-one.component';
+import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
 
 
 
@@ -27,7 +27,6 @@ import { ConsultaOneComponent } from './consulta/consulta-one/consulta-one.compo
     AppComponent,
     MedicoListComponent,
     MedicoOneComponent,
-    MedicoFormComponent,
     RemedioFormComponent,
     RemedioListComponent,
     RemedioOneComponent,
@@ -36,7 +35,8 @@ import { ConsultaOneComponent } from './consulta/consulta-one/consulta-one.compo
     PacienteOneComponent,
     ConsultaFormComponent,
     ConsultaListComponent,
-    ConsultaOneComponent
+    ConsultaOneComponent,
+    MedicoFormComponent
   ],
   imports: [
     BrowserModule,

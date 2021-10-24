@@ -9,22 +9,24 @@ import { RemedioListComponent } from './remedio/remedio-list/remedio-list.compon
 import { RemedioFormComponent } from './remedio/remedio-form/remedio-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
+
 
 const routes: Routes = [
 
+  {path: 'medicos/form', component: MedicoFormComponent},
   {path: 'medicos', component: MedicoListComponent},
   {path: 'medicos/:id', component: MedicoOneComponent},
 
   {path: 'pacientes/form', component: PacienteFormComponent},
   {path: 'pacientes', component: PacienteListComponent},
   {path: 'pacientes/:id', component: PacienteOneComponent},
+  
   {path: 'remedios/form', component: RemedioFormComponent},
   {path: 'remedios', component: RemedioListComponent},
   {path: 'remedios/:id', component: RemedioOneComponent},
-  {path: '', redirectTo: 'medicos', pathMatch: 'full'},
-  {path: 'medicos', component: MedicoListComponent},
-  {path: 'medicos/:id', component: MedicoOneComponent},
-  {path: 'medicos/form', component: MedicoFormComponent}
+  
+  
 ];
 
 @NgModule({
