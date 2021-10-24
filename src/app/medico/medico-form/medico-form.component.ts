@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { faArrowCircleLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
+import { EnumEspecialidade } from 'src/app/enumEspecialidade';
 import { Especialidade } from 'src/app/especialidade';
+
 import { Medicos } from 'src/app/medicos';
 import { MedicosService } from 'src/app/medicos.service';
 
@@ -20,11 +22,16 @@ export class MedicoFormComponent implements OnInit {
   especialidades: Especialidade[] = [];
   id!: number;
 
+  enumEspecialidade = EnumEspecialidade;
+  enumKeys = Object.keys(EnumEspecialidade) as (keyof typeof EnumEspecialidade)[];
+
   constructor(
     private service: MedicosService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { 
+    this.enumKeys=Object.keys(EnumEspecialidade) as (keyof typeof EnumEspecialidade)[];
+    
     this.medico = new Medicos();
   }
 
@@ -55,7 +62,7 @@ export class MedicoFormComponent implements OnInit {
     ]
   }
     save() {
-      console.log("Salvar Aqui")
+      console.log(this.medico)
      this.service.save(this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
     }
 }

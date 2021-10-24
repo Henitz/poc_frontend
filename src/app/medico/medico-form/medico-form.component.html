@@ -6,6 +6,7 @@
           <input type="text" id="nome" class="form-control" required [(ngModel)]="medico.nome" name="nome"
             #nome="ngModel" placeholder="Nome Completo">
         </div>
+        
         <div class="col">
           <label>Especialidade</label>
           <select id="especialidade" name="especialidade" class="form-control"
@@ -16,6 +17,18 @@
                     [ngValue]="especialidade.nome">{{especialidade.nome}}</option>
           </select>
         </div>
+
+        <div class="col">
+            <label>Especialidade</label>
+            <select id="enumEspecialidade" name="enumEspecialidade" class="form-control"
+                    [(ngModel)]="medico.especialidade"
+                    [ngModelOptions]="{standalone: true}"
+                    >
+                    <option *ngFor="let name of enumKeys" [value]="name"> {{enumEspecialidade[name]}} </option>
+            </select>
+          </div>
+
+        
       </div>
       <button type="submit" [disabled]="nome.invalid" class="btn btn-light">
         <fa-icon [icon]="faSave"></fa-icon> Salvar Médico
