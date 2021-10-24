@@ -29,6 +29,10 @@ export class MedicoListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe((p) => (this.medicos = p));
   }
+  form() {
+    this.router.navigate(['medicos/medico-list'])
+  }
+
   prepararExibir(medico: Medicos){
     this.medicoSelecionadoExibir = medico
   }
