@@ -1,8 +1,9 @@
+<!-- <p>paciente-list works!</p> -->
 <!-- <p>medico-list works!</p> -->
 <!-- <div *ngFor="let produto of produtos">{{produto.descricao}}</div> -->
 <button (click)="form()" class="btn btn-light btn">
   <fa-icon [icon]=faPlusSquare></fa-icon>
-  Adicionar Médico
+  Adicionar Paciente
 </button>
 <div class="row">
   <div class="col-md-12">
@@ -11,31 +12,31 @@
         <thead>
           <th>Id</th>
           <th>Nome</th>
-          <th>Especialidade</th>
+          <th>Convenio</th>
 
         </thead>
         <tbody>
-            <tr  *ngFor="let medico of medicos">
-              <td>{{medico.id}}</td>
-              <td>{{medico.nome}}</td>
+            <tr  *ngFor="let paciente of pacientes">
+              <td>{{paciente.id}}</td>
+              <td>{{paciente.nome}}</td>
               <!-- <td>{{medico.especialidade}}</td> -->
 
               <td style="white-space: nowrap;">
-                <button class="btn btn-light" (click)="prepararExibir(medico)" data-toggle="modal"
+                <button class="btn btn-light" (click)="prepararExibir(paciente)" data-toggle="modal"
                   data-target="#modalExibir">
                   <fa-icon [icon]="faEye"></fa-icon>
                 </button>
               </td>
 
               <td style="white-space: nowrap;">
-                <button class="btn btn-light" (click)="preparaDelete(medico)" data-toggle="modal"
+                <button class="btn btn-light" (click)="preparaDelete(paciente)" data-toggle="modal"
                   data-target="#modalDelecao">
                   <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
               </td>
 
               <td style="white-space: nowrap;">
-                <button class="btn btn-light" (click)="alterar(medico.id)">
+                <button class="btn btn-light" (click)="alterar(paciente.id)">
                   <fa-icon [icon]="faPencilAlt"></fa-icon>
                 </button>
               </td>
@@ -57,7 +58,7 @@
       </div>
       <div class="modal-body">
         <h5>Tem certeza que deseja deletar?</h5>
-        <h6>Produtos: <span class="badge badge-secondary">{{medicoSelecionadoDelete.nome}}</span></h6>
+        <h6>Produtos: <span class="badge badge-secondary">{{pacienteSelecionadoDelete.nome}}</span></h6>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" (click)="delete()" data-dismiss="modal">Confirmar</button>
@@ -76,7 +77,7 @@
       </div>
       <div class="modal-body">
         <h5>Tem certeza que deseja Exibir?</h5>
-        <h6>Produto: <span class="badge badge-secondary">{{medicoSelecionadoExibir.nome}}</span></h6>
+        <h6>Produto: <span class="badge badge-secondary">{{pacienteSelecionadoExibir.nome}}</span></h6>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" (click)="exibir()" data-dismiss="modal">Confirmar</button>

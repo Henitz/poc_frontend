@@ -1,9 +1,8 @@
 import { MedicosService } from 'src/app/medicos.service';
 import { Component, OnInit } from '@angular/core';
 import { Medicos } from 'src/app/medicos';
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import { Especialidades } from 'src/app/especialidades';
 
 @Component({
   selector: 'app-medico-one',
@@ -16,11 +15,13 @@ export class MedicoOneComponent implements OnInit {
   medico: Medicos = new Medicos();
   faArrowCircleLeft=faArrowCircleLeft
 
+
   constructor(
     private service: MedicosService,
+    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-
+    this.id = this.activatedRoute.snapshot.params['id'];
    }
 
   ngOnInit(): void {
@@ -32,11 +33,6 @@ export class MedicoOneComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/medicos'])
+    this.router.navigate(['/medico'])
   }
-
-  getEspecialidade(id: number){
-    this.especialidades[id]
-  }
-
 }

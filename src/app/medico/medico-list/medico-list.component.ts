@@ -20,7 +20,7 @@ export class MedicoListComponent implements OnInit {
   medicoSelecionadoDelete = new Medicos();
   medicoSelecionadoAtivar = new Medicos();
 
-  medico: Medicos[] = [];
+  medicos: Medicos[] = [];
 
   blockDeletion: Boolean = false;
 
@@ -50,5 +50,9 @@ export class MedicoListComponent implements OnInit {
 
   alterar(id: number) {
     this.router.navigate(['/medicos/medico-form/' + id])
+  }
+
+  form() {
+    this.router.navigate(['/medicos/medico-form'])
   }
 }

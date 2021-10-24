@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { faCodeBranch, faUsers } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,4 +11,5 @@ export class AppComponent {
   title = 'ui';
   faCodeBranch=faCodeBranch;
   faUsers=faUsers;
+
 }
