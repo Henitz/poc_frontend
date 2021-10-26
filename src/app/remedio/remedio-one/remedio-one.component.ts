@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Remedios } from 'src/app/remedios';
 import { RemediosService } from 'src/app/remedios.service';
@@ -17,8 +17,11 @@ export class RemedioOneComponent implements OnInit {
 
   constructor(
     private service: RemediosService,
+    private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.id = this.activatedRoute.snapshot.params['id'];
+   }
 
   ngOnInit(): void {
     this.getOne(this.id)

@@ -1,1 +1,17 @@
-<p>consulta-form works!</p>
+<!-- <p>consulta-form works!</p> -->
+<form (ngSubmit)="save()" action="">
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <label>Data</label>
+        <input type="text" id="data" class="form-control" required [(ngModel)]="consulta.data" name="data"
+          #nome="ngModel" placeholder="Data da Consulta">
+      </div>
+
+    </div>
+    <button type="submit" [disabled]="nome.invalid" class="btn btn-light">
+      <fa-icon [icon]="faSave"></fa-icon> Salvar Consulta
+    </button>
+
+  </div>
+</form>

@@ -1,1 +1,93 @@
-<p>consulta-list works!</p>
+<!-- <p>consulta-list works!</p> -->
+
+<button (click)="form()" class="btn btn-light btn">
+  <fa-icon [icon]=faPlusSquare></fa-icon>
+  Adicionar
+</button>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th>Id</th>
+          <th>Data</th>
+
+
+        </thead>
+        <tbody>
+            <tr  *ngFor="let consulta of consultas">
+              <td>{{consulta.id}}</td>
+              <td>{{consulta.data}}</td>
+              <!-- <td>{{medico.especialidade}}</td> -->
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="prepararExibir(consulta)" data-toggle="modal"
+                  data-target="#modalExibir">
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+              </td>
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="preparaDelete(consulta)" data-toggle="modal"
+                  data-target="#modalDelecao">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+              </td>
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="alterar(consulta.id)">
+                  <fa-icon [icon]="faPencilAlt"></fa-icon>
+                </button>
+              </td>
+
+
+
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="modalDelecao" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja deletar?</h5>
+        <h6>Produtos: <span class="badge badge-secondary">{{consultaSelecionadoDelete.data}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="delete()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="modalExibir" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja Exibir?</h5>
+        <h6>Produto: <span class="badge badge-secondary">{{consultaSelecionadoExibir.data}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="exibir()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

@@ -15,17 +15,19 @@ import { Planosdesaude } from 'src/app/planosdesaude';
 export class PacienteFormComponent implements OnInit {
 
 
+
   paciente!: Pacientes;
-
   success: boolean = false;
-
   faSave=faSave;
   faArrowCircleLeft=faArrowCircleLeft;
+  planosdesaude: Planosdesaude[]= [];
 
-  keys = Object.keys;
-  planosdesaude = Planosdesaude;
+  /* keys = Object.keys;
+  planosdesaude = Planosdesaude; */
 
   id!: number;
+
+
 
   constructor(
     private service: PacientesService,
@@ -48,6 +50,18 @@ export class PacienteFormComponent implements OnInit {
               )
       }
     })
+
+    this.planosdesaude =  [
+      {
+        "nome": "UNIMED",
+      },
+      {
+        "nome": "BRADESCO"
+      },
+      {
+        "nome": "PREVENT_SENIOR"
+      }
+    ]
 
   }
 

@@ -29,9 +29,9 @@ export class MedicoFormComponent implements OnInit {
     private service: MedicosService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { 
+  ) {
     this.enumKeys=Object.keys(EnumEspecialidade) as (keyof typeof EnumEspecialidade)[];
-    
+
     this.medico = new Medicos();
   }
 

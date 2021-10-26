@@ -8,12 +8,25 @@
         <input type="text" id="nome" class="form-control" required [(ngModel)]="paciente.nome" name="nome"
           #nome="ngModel" placeholder="Nome Completo">
       </div>
-      <!-- <div class="col">
-        <label>Especialidade</label>
-        <select>
+      <div class="col">
+        <label>Plano de Saúde</label>
+       <!--  <select>
           <option *ngFor="let planodesaude of keys(planosdesaude)" [ngValue]="planosdesaude[planodesaude]">{{planodesaude}}</option>
-        </select>
-      </div> -->
+        </select> -->
+        <select id="planodesaude" name="planodesaude" class="form-control"
+                  [(ngModel)]="paciente.planoDeSaude"
+                  [ngModelOptions]="{standalone: true}"
+                  >
+            <option *ngFor="let planodesaude of planosdesaude"
+                    [ngValue]="planodesaude.nome">{{planodesaude.nome}}</option>
+          </select>
+
+
+
+      </div>
+
+
+
     </div>
 
     <!-- <app-dropdown [medico]="medico"></app-dropdown> -->
