@@ -3,6 +3,7 @@ import { MedicosService } from 'src/app/medicos.service'
 import { Medicos } from 'src/app/medicos'
 import { Router } from '@angular/router';
 import { faPlusSquare, faEye, faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { Identifiers } from '@angular/compiler/src/render3/r3_identifiers';
 
 @Component({
   selector: 'app-medico-list',
@@ -53,6 +54,8 @@ export class MedicoListComponent implements OnInit {
   }
 
   alterar(id: number) {
-    this.router.navigate(['/medicos/medico-form/' + id])
+    console.log(id);
+    console.log('Teste editar');
+    this.router.navigate(['/medicos/medico-form/' + id]);
   }
 }

@@ -30,4 +30,7 @@ export class MedicosService {
     return this.http.delete<any>(this.baseMedicoUrl + `/${id}`)
   }
 
+  update(id: number, medico: Medicos){
+    return this.http.put(this.baseMedicoUrl + `/${id}`, medico)
+  }
 }

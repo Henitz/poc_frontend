@@ -51,5 +51,8 @@ export class ConsultaFormComponent implements OnInit {
       console.log(this.consulta)
      this.service.save(this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
     }
+
+
+
 }
 

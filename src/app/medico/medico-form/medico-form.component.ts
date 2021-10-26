@@ -62,7 +62,13 @@ export class MedicoFormComponent implements OnInit {
     ]
   }
     save() {
-      console.log(this.medico)
-     this.service.save(this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+      if(!this.id){
+        console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
+        this.service.save(this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+      }
+      if(this.id){
+        console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
+        this.service.update(this.id, this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+      }
     }
 }

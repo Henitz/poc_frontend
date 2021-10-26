@@ -17,7 +17,7 @@
             <tr  *ngFor="let medico of medicos">
               <td>{{medico.id}}</td>
               <td>{{medico.nome}}</td>
-              <!-- <td>{{medico.especialidade}}</td> -->
+              <td>{{medico.especialidade}}</td>
 
               <td style="white-space: nowrap;">
                 <button class="btn btn-light" (click)="prepararExibir(medico)" data-toggle="modal"
