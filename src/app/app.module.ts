@@ -18,6 +18,9 @@ import { ConsultaFormComponent } from './consulta/consulta-form/consulta-form.co
 import { ConsultaListComponent } from './consulta/consulta-list/consulta-list.component';
 import { ConsultaOneComponent } from './consulta/consulta-one/consulta-one.component';
 import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
+import { NavbarComponent } from './template/navbar/navbar.component';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -36,7 +39,10 @@ import { MedicoFormComponent } from './medico/medico-form/medico-form.component'
     ConsultaFormComponent,
     ConsultaListComponent,
     ConsultaOneComponent,
-    MedicoFormComponent
+    MedicoFormComponent,
+    NavbarComponent,
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

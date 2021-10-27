@@ -13,8 +13,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
 import { ConsultaFormComponent } from './consulta/consulta-form/consulta-form.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+
+  { path : 'home', component: HomeComponent },
+  { path : '', component: HomeComponent },
 
   {path: 'medicos/form', component: MedicoFormComponent},
   {path: 'medicos', component: MedicoListComponent},
