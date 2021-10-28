@@ -11,6 +11,8 @@
         <thead>
           <th>Id</th>
           <th>Data</th>
+          <th>Medico</th>
+          <th>Paciente</th>
 
 
         </thead>
@@ -18,6 +20,9 @@
             <tr  *ngFor="let consulta of consultas">
               <td>{{consulta.id}}</td>
               <td>{{consulta.data}}</td>
+              <td>{{consulta.medico.nome}}</td>
+              <!-- <td>{{consulta.paciente.nome}}</td> -->
+
               <!-- <td>{{medico.especialidade}}</td> -->
 
               <td style="white-space: nowrap;">

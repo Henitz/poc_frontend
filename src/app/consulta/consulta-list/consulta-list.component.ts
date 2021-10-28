@@ -3,6 +3,9 @@ import { ConsultaService } from 'src/app/consulta.service';
 import { Component, OnInit } from '@angular/core';
 import { faEye, faPencilAlt, faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { Medicos } from 'src/app/medicos';
+import { MedicosService } from 'src/app/medicos.service';
+import { Pacientes } from 'src/app/pacientes';
 
 @Component({
   selector: 'app-consulta-list',
@@ -23,13 +26,34 @@ export class ConsultaListComponent implements OnInit {
   consultas: Consultas[] = [];
   blockDeletion: Boolean = false;
 
+  medico: Medicos | undefined;
+  medicos: Medicos[] = [];
 
-  constructor(private service: ConsultaService, private router: Router) { }
+  paciente: Pacientes | undefined;
+  pacientes: Pacientes[] = [];
+
+  constructor(
+    private service: ConsultaService,
+    private router: Router,
+    private medicoService: MedicosService,
+     ) {
+
+      }
 
   ngOnInit(): void {
     this.service.getAll().subscribe((p) => (this.consultas = p));
+
+
+
   }
   form() {
+
+    this.medicoService
+    .getAll()
+    .subscribe(
+      response => this.medicos = response );
+
+
     this.router.navigate(['consultas/consulta-list'])
   }
 

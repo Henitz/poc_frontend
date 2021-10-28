@@ -7,8 +7,42 @@
         <input type="text" id="data" class="form-control" required [(ngModel)]="consulta.data" name="data"
           #nome="ngModel" placeholder="Data da Consulta">
       </div>
-
     </div>
+
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Medico: </label>
+        <select class="form-control" name="medico"
+                [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="consulta.medico.id">
+          <option value="">Selecione ...</option>
+          <option *ngFor="let medico of medicos"
+                  [ngValue]="medico.id">
+            {{ medico.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Pacientes: </label>
+        <select class="form-control" name="paciente"
+                [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="consulta.paciente.id">
+          <option value="">Selecione ...</option>
+          <option *ngFor="let paciente of pacientes"
+                  [ngValue]="paciente.id">
+            {{ paciente.nome }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+
+
     <button type="submit" [disabled]="nome.invalid" class="btn btn-light">
       <fa-icon [icon]="faSave"></fa-icon> Salvar Consulta
     </button>
