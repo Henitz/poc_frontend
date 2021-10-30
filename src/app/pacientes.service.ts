@@ -26,6 +26,10 @@ export class PacientesService {
     return this.http.post<Pacientes>(this.basePacienteUrl, pacientes)
   }
 
+  edit(id: number, pacientes: Pacientes) {
+    return this.http.put(this.basePacienteUrl + `/${id}`, pacientes)
+   }
+
   delete(id: number) : Observable<any> {
     return this.http.delete<any>(this.basePacienteUrl + `/${id}`)
   }

@@ -30,10 +30,13 @@ const routes: Routes = [
   {path: 'pacientes/form', component: PacienteFormComponent},
   {path: 'pacientes', component: PacienteListComponent},
   {path: 'pacientes/:id', component: PacienteOneComponent},
+  {path: 'pacientes/paciente-form/:id', component: PacienteFormComponent},
 
   {path: 'remedios/form', component: RemedioFormComponent},
   {path: 'remedios', component: RemedioListComponent},
   {path: 'remedios/:id', component: RemedioOneComponent},
+  {path: 'remedios/remedio-form/:id', component: RemedioFormComponent},
+  {path: 'remedios/form/:id', component: RemedioFormComponent},
 
   {path: 'consultas/form', component: ConsultaFormComponent},
   {path: 'consultas', component: ConsultaListComponent},

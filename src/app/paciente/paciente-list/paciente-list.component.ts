@@ -56,6 +56,6 @@ export class PacienteListComponent implements OnInit {
   }
 
   form() {
-    this.router.navigate(['/pacientes/paciente-form'])
+    this.router.navigate(['/pacientes/form'])
   }
 }

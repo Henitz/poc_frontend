@@ -6,6 +6,7 @@ import { PacientesService } from 'src/app/pacientes.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Planosdesaude } from 'src/app/planosdesaude';
+import { taggedTemplate } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-paciente-form',
@@ -14,20 +15,12 @@ import { Planosdesaude } from 'src/app/planosdesaude';
 })
 export class PacienteFormComponent implements OnInit {
 
-
-
   paciente!: Pacientes;
   success: boolean = false;
   faSave=faSave;
   faArrowCircleLeft=faArrowCircleLeft;
   planosdesaude: Planosdesaude[]= [];
-
-  /* keys = Object.keys;
-  planosdesaude = Planosdesaude; */
-
   id!: number;
-
-
 
   constructor(
     private service: PacientesService,
@@ -38,6 +31,7 @@ export class PacienteFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
     let params : Observable<Params> = this.activatedRoute.params
     params.subscribe( urlParams => {
       this.id = urlParams['id']
@@ -63,13 +57,17 @@ export class PacienteFormComponent implements OnInit {
       }
     ]
 
+    console.log(this.id);
+
   }
 
   save() {
-    console.log("Salvar Aqui")
-   // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-   this.service.save(this.paciente).subscribe(c=>{this.router.navigate(['/pacientes']); this.success = true})
-   //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
+    if(this.id) {
+      this.service.edit(this.id, this.paciente).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
+    }else {
+      this.service.save(this.paciente).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
+    }
+
   }
 
 
