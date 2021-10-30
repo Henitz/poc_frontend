@@ -39,6 +39,8 @@ const routes: Routes = [
   {path: 'consultas', component: ConsultaListComponent},
   {path: 'consultas/:id', component: ConsultaOneComponent}
 
+
+
 ];
 
 @NgModule({

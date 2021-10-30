@@ -32,7 +32,7 @@ export class RemedioOneComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/remedio'])
+    this.router.navigate(['/remedios'])
   }
 
 }

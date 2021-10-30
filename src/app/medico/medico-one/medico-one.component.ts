@@ -33,6 +33,6 @@ export class MedicoOneComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/medico'])
+    this.router.navigate(['/medicos'])
   }
 }

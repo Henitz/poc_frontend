@@ -36,6 +36,6 @@ export class PacienteOneComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/paciente'])
+    this.router.navigate(['/pacientes'])
   }
 }

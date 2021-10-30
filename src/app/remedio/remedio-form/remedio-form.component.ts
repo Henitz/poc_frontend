@@ -50,7 +50,7 @@ export class RemedioFormComponent implements OnInit {
     save() {
       console.log("Salvar Aqui")
      // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-     this.service.save(this.remedio).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+     this.service.save(this.remedio).subscribe(c=>{this.router.navigate(['/remedios']); this.success = true})
      //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
     }
 

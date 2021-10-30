@@ -19,7 +19,7 @@
             <tr  *ngFor="let paciente of pacientes">
               <td>{{paciente.id}}</td>
               <td>{{paciente.nome}}</td>
-              <!-- <td>{{medico.especialidade}}</td> -->
+              <td>{{paciente.planoDeSaude}}</td>
 
               <td style="white-space: nowrap;">
                 <button class="btn btn-light" (click)="prepararExibir(paciente)" data-toggle="modal"
