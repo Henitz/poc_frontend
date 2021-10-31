@@ -29,5 +29,7 @@ export class ConsultaService {
     return this.http.delete<any>(this.baseConsultaUrl + `/${id}`)
   }
 
-
+  update(id: number, consultas: Consultas){
+    return this.http.put(this.baseConsultaUrl + `/${id}`, consultas)
+  }
 }

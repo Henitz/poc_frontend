@@ -40,7 +40,8 @@ const routes: Routes = [
 
   {path: 'consultas/form', component: ConsultaFormComponent},
   {path: 'consultas', component: ConsultaListComponent},
-  {path: 'consultas/:id', component: ConsultaOneComponent}
+  {path: 'consultas/:id', component: ConsultaOneComponent},
+  {path: 'consultas/consulta-form/:id', component: ConsultaFormComponent}
 
 
 

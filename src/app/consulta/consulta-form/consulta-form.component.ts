@@ -72,8 +72,14 @@ export class ConsultaFormComponent implements OnInit {
 
   }
     save() {
-      console.log(this.consulta)
-     this.service.save(this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
+      if(!this.id){
+        console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
+        this.service.save(this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
+      }
+      if(this.id){
+        console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
+        this.service.update(this.id, this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
+      }
     }
 
 
