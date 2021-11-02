@@ -31,7 +31,7 @@ export class MedicoListComponent implements OnInit {
     this.service.getAll().subscribe((p) => (this.medicos = p));
   }
   form() {
-    this.router.navigate(['medicos/medico-list'])
+    this.router.navigate(['medicos/form'])
   }
 
   prepararExibir(medico: Medicos){

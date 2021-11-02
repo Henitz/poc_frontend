@@ -54,7 +54,7 @@ export class ConsultaListComponent implements OnInit {
       response => this.medicos = response );
 
 
-    this.router.navigate(['consultas/consulta-list'])
+    this.router.navigate(['consultas/form'])
   }
 
   prepararExibir(consulta: Consultas){
