@@ -15,6 +15,7 @@ import { MedicoFormComponent } from './medico/medico-form/medico-form.component'
 import { ConsultaFormComponent } from './consulta/consulta-form/consulta-form.component';
 import { HomeComponent } from './home/home.component';
 import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/consulta-remedio-list.component';
+import { ConsultaRemedioFormComponent } from './consulta/consulta-remedio-form/consulta-remedio-form.component';
 
 const routes: Routes = [
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'consultas/consulta-form/:id', component: ConsultaFormComponent},
 
   {path: 'consulta-remedio-list/:id', component: ConsultaRemedioListComponent},
+  {path: 'consulta-remedio-form', component: ConsultaRemedioFormComponent},
 
 ];
 

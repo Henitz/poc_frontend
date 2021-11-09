@@ -22,6 +22,7 @@ import { NavbarComponent } from './template/navbar/navbar.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/consulta-remedio-list.component';
+import { ConsultaRemedioFormComponent } from './consulta/consulta-remedio-form/consulta-remedio-form.component';
 
 
 
@@ -44,7 +45,8 @@ import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/c
     NavbarComponent,
     SidebarComponent,
     HomeComponent,
-    ConsultaRemedioListComponent
+    ConsultaRemedioListComponent,
+    ConsultaRemedioFormComponent
   ],
   imports: [
     BrowserModule,
