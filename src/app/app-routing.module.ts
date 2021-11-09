@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MedicoFormComponent } from './medico/medico-form/medico-form.component';
 import { ConsultaFormComponent } from './consulta/consulta-form/consulta-form.component';
 import { HomeComponent } from './home/home.component';
+import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/consulta-remedio-list.component';
 
 const routes: Routes = [
 
@@ -41,9 +42,9 @@ const routes: Routes = [
   {path: 'consultas/form', component: ConsultaFormComponent},
   {path: 'consultas', component: ConsultaListComponent},
   {path: 'consultas/:id', component: ConsultaOneComponent},
-  {path: 'consultas/consulta-form/:id', component: ConsultaFormComponent}
+  {path: 'consultas/consulta-form/:id', component: ConsultaFormComponent},
 
-
+  {path: 'consulta-remedio-list/:id', component: ConsultaRemedioListComponent},
 
 ];
 

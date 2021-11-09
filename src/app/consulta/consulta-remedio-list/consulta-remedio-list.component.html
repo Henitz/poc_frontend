@@ -1,0 +1,12 @@
+<div> Detalhamento dos remédios da consulta: <b> {{consulta.id}} </b> </div>
+
+
+<div *ngFor="let remedio of consulta.remedios">
+  {{remedio.id}} - {{remedio.nome}}
+</div>
+
+
+<button type="button" (click)="back()"class="btn btn-light">
+  <fa-icon [icon]=faArrowCircleLeft></fa-icon>
+</button>
+

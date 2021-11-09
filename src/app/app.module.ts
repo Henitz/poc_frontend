@@ -21,6 +21,7 @@ import { MedicoFormComponent } from './medico/medico-form/medico-form.component'
 import { NavbarComponent } from './template/navbar/navbar.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
+import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/consulta-remedio-list.component';
 
 
 
@@ -42,7 +43,8 @@ import { HomeComponent } from './home/home.component';
     MedicoFormComponent,
     NavbarComponent,
     SidebarComponent,
-    HomeComponent
+    HomeComponent,
+    ConsultaRemedioListComponent
   ],
   imports: [
     BrowserModule,

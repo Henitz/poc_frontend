@@ -1,33 +1,27 @@
+import { RemediosService } from './../../remedios.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faArrowCircleLeft, faPills } from '@fortawesome/free-solid-svg-icons';
 import { ConsultaService } from 'src/app/consulta.service';
 import { Consultas } from 'src/app/consultas';
-import { Medicos } from 'src/app/medicos';
-import { Pacientes } from 'src/app/pacientes';
+import { Remedios } from 'src/app/remedios';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-consulta-one',
-  templateUrl: './consulta-one.component.html',
-  styleUrls: ['./consulta-one.component.css']
+  selector: 'app-consulta-remedio-list',
+  templateUrl: './consulta-remedio-list.component.html',
+  styleUrls: ['./consulta-remedio-list.component.css']
 })
-export class ConsultaOneComponent implements OnInit {
+export class ConsultaRemedioListComponent implements OnInit {
 
   id!: number;
   consulta: Consultas = new Consultas();
-  medico: Medicos = new Medicos();
-  paciente: Pacientes = new Pacientes();
-
-  faArrowCircleLeft=faArrowCircleLeft
-  faPills = faPills
+  remedio: Remedios = new Remedios();
+  faArrowCircleLeft = faArrowCircleLeft;
 
   constructor(
-
     private service: ConsultaService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-
-
   ) {
     this.id = this.activatedRoute.snapshot.params['id'];
    }
@@ -38,13 +32,11 @@ export class ConsultaOneComponent implements OnInit {
 
   getOne(id: number){
     this.service.getOne(id).subscribe(c=>this.consulta=c)
+
   }
 
   back() {
-    this.router.navigate(['/consultas'])
-  }
-  pills(id: number) {
-    this.router.navigate(['/consulta-remedio-list/' + id])
+    this.router.navigate(['/consultas/' + this.id ])
   }
 
 }
