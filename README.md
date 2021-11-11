@@ -1,3 +1,9 @@
+# Como criar um componente que está associado a um registro
+
+Remedios está associado a uma consulta existente.
+
+O botão tem um metodo que precisa passar o id e chamar a serviçe para resgatar o registro de consulta
+
 # Como mudar o layout de um projeto existente
 
 ## Criação dos componentes

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultaService } from 'src/app/consulta.service';
 import { Consultas } from 'src/app/consultas';
 import { Remedios } from 'src/app/remedios';
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faPills, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-consulta-remedio-list',
@@ -36,7 +36,13 @@ export class ConsultaRemedioListComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/consultas/' + this.id ])
+    this.router.navigate(['/consulta-list/'])
   }
+
+  pills(id: number) {
+    this.router.navigate(['/consulta-remedio-form/' + id])
+  }
+
+
 
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { ConsultaService } from 'src/app/consulta.service';
 import { Consultas } from 'src/app/consultas';
 import { Remedios } from 'src/app/remedios';
+import { RemediosService } from 'src/app/remedios.service';
 
 @Component({
   selector: 'app-consulta-remedio-form',
@@ -16,9 +17,13 @@ export class ConsultaRemedioFormComponent implements OnInit {
   consulta: Consultas = new Consultas();
   remedio: Remedios = new Remedios();
   faArrowCircleLeft = faArrowCircleLeft;
+  faSave = faSave;
+  success: boolean = false;
+  remedios: Remedios[] = [];
 
   constructor(
     private service: ConsultaService,
+    private remedioService: RemediosService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
@@ -28,6 +33,8 @@ export class ConsultaRemedioFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.remedioService.getAll().subscribe((r) => (this.remedios = r));
+    this.getOne(this.id)
   }
 
   getOne(id: number){
@@ -39,4 +46,10 @@ export class ConsultaRemedioFormComponent implements OnInit {
     this.router.navigate(['/consultas/' + this.id ])
   }
 
+  save() {
+    this.consulta.remedios.push(this.remedio);
+    this.service
+      .update(this.id, this.consulta)
+        .subscribe(c=>this.router.navigate(['/consultas']))
+  }
 }

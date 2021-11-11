@@ -81,6 +81,6 @@ export class ConsultaListComponent implements OnInit {
   }
 
   alterar1(id: number) {
-    this.router.navigate(['consulta-remedio-form'])
+    this.router.navigate(['consulta-remedio-list/'+id])
   }
 }

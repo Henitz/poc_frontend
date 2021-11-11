@@ -45,8 +45,13 @@ const routes: Routes = [
   {path: 'consultas/:id', component: ConsultaOneComponent},
   {path: 'consultas/consulta-form/:id', component: ConsultaFormComponent},
 
+  {path: 'consulta-remedio-list', component: ConsultaRemedioListComponent},
   {path: 'consulta-remedio-list/:id', component: ConsultaRemedioListComponent},
-  {path: 'consulta-remedio-form', component: ConsultaRemedioFormComponent},
+
+  {path: 'consulta-remedio-form/:id', component: ConsultaRemedioFormComponent},
+  {path: 'consulta-remedio-form' , component: ConsultaRemedioFormComponent},
+
+  {path: 'consulta-list', component: ConsultaListComponent},
 
 ];
 

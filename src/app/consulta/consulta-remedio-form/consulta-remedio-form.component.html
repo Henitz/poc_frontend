@@ -1,17 +1,19 @@
-<!-- <p>consulta-remedio-form works!</p> -->
 <div> Remédios: </div>
 
-<select>
-<option *ngFor="let remedio of consulta.remedios">
+
+<form (ngSubmit)="save()" action="">
+
+<select class="form-control" name="remedio"
+[ngModelOptions]="{standalone: true}"
+[(ngModel)]="remedio.id">
+<option *ngFor="let remedio of remedios"
+[ngValue]="remedio.id">
   {{remedio.nome}}
 </option>
 </select>
 
+<button type="submit" class="btn btn-light">
+  <fa-icon [icon]="faSave"></fa-icon> Salvar Remédios
+</button>
 
-
-
-
-<!-- <button type="button" (click)="back()"class="btn btn-light">
-  <fa-icon [icon]=faArrowCircleLeft></fa-icon>
-</button> -->
-
+</form>
