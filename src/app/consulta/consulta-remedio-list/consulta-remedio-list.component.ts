@@ -18,6 +18,8 @@ export class ConsultaRemedioListComponent implements OnInit {
   consulta: Consultas = new Consultas();
   remedio: Remedios = new Remedios();
   faArrowCircleLeft = faArrowCircleLeft;
+  faPills = faPills;
+  faTrash = faTrash;
 
   constructor(
     private service: ConsultaService,

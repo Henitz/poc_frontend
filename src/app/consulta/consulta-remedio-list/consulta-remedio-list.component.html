@@ -4,7 +4,7 @@
 <div *ngFor="let remedio of consulta.remedios">
   {{remedio.id}} - {{remedio.nome}}
   <button class="btn btn-light" (click)="excluir(remedio)">
-    Excluir
+    <fa-icon [icon]=faTrash></fa-icon>
   </button>
 </div>
 
@@ -12,7 +12,7 @@
 
 
 <button type="button" (click)="pills(consulta.id)"class="btn btn-light">
-  Adicionar
+  <fa-icon [icon]=faPills></fa-icon>
 </button>
 
 <button type="button" (click)="back()"class="btn btn-light">
