@@ -50,6 +50,19 @@ export class ConsultaRemedioFormComponent implements OnInit {
     this.consulta.remedios.push(this.remedio);
     this.service
       .update(this.id, this.consulta)
-        .subscribe(c=>this.router.navigate(['/consultas']))
+        .subscribe(c=>{
+
+
+
+          this.router.navigate(['/consulta-remedio-list/' + this.consulta.id])
+
+      //   this.router.navigateByUrl('/consulta-remedio-list', { skipLocationChange: true }).then(() => {
+      //     this.router.navigate(['/consulta-remedio-list']);
+      // });
+
+
+
+
+        })
   }
 }

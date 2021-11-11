@@ -13,6 +13,7 @@ import { faArrowCircleLeft, faPills, faTrash } from '@fortawesome/free-solid-svg
 })
 export class ConsultaRemedioListComponent implements OnInit {
 
+  position: any;
   id!: number;
   consulta: Consultas = new Consultas();
   remedio: Remedios = new Remedios();
@@ -35,6 +36,13 @@ export class ConsultaRemedioListComponent implements OnInit {
 
   }
 
+  excluir(remedio: Remedios){
+    this.position  = this.consulta.remedios.indexOf(remedio);
+    this.consulta.remedios.splice(this.position,1);
+    this.service
+      .update(this.id, this.consulta)
+        .subscribe(c=>this.router.navigate(['/consulta-remedio-list/' + this.consulta.id]))
+  }
   back() {
     this.router.navigate(['/consulta-list/'])
   }

@@ -3,7 +3,12 @@
 
 <div *ngFor="let remedio of consulta.remedios">
   {{remedio.id}} - {{remedio.nome}}
+  <button class="btn btn-light" (click)="excluir(remedio)">
+    Excluir
+  </button>
 </div>
+
+<app-consulta-remedio-form></app-consulta-remedio-form>
 
 
 <button type="button" (click)="pills(consulta.id)"class="btn btn-light">
