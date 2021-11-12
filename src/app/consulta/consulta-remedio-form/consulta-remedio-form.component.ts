@@ -46,23 +46,17 @@ export class ConsultaRemedioFormComponent implements OnInit {
     this.router.navigate(['/consultas/' + this.id ])
   }
 
+  redirectTo(url: string){
+    this.router.navigateByUrl('/',{skipLocationChange: true}).then(()=>
+    this.router.navigate([url]));
+  }
+
   save() {
     this.consulta.remedios.push(this.remedio);
     this.service
       .update(this.id, this.consulta)
         .subscribe(c=>{
-
-
-
-          this.router.navigate(['/consulta-remedio-list/' + this.consulta.id])
-
-      //   this.router.navigateByUrl('/consulta-remedio-list', { skipLocationChange: true }).then(() => {
-      //     this.router.navigate(['/consulta-remedio-list']);
-      // });
-
-
-
-
+          this.redirectTo('/consulta-remedio-list/' + this.consulta.id)
         })
   }
 }

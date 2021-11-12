@@ -1,20 +1,40 @@
-<div> Detalhamento dos remédios da consulta: <b> {{consulta.id}} </b> </div>
+<h1 class="mt-4">Lista de Remedios</h1>
 
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta: </li>
+  <b> {{ consulta.id }} </b>
+</ol>
 
-<div *ngFor="let remedio of consulta.remedios">
-  {{remedio.id}} - {{remedio.nome}}
-  <button class="btn btn-light" (click)="excluir(remedio)">
-    <fa-icon [icon]=faTrash></fa-icon>
-  </button>
+<div class="row">
+
+  <div class="col">
+    <app-consulta-remedio-form></app-consulta-remedio-form>
+  </div>
+
+  <div class="col">
+    <div class="table-responsive">
+      <table class="table table-hover table-dark">
+        <thead>
+          <th>Id</th>
+          <th>Remédio</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let remedio of consulta.remedios">
+            <td>{{remedio.id}}</td>
+            <td>{{remedio.nome}}</td>
+            <td>
+              <button class="btn btn-light" (click)="excluir(remedio)">
+                <fa-icon [icon]=faTrash></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
-<app-consulta-remedio-form></app-consulta-remedio-form>
-
-
-<button type="button" (click)="pills(consulta.id)"class="btn btn-light">
-  <fa-icon [icon]=faPills></fa-icon>
-</button>
-
-<button type="button" (click)="back()"class="btn btn-light">
+<button type="button" (click)="back()" class="btn btn-light">
   <fa-icon [icon]=faArrowCircleLeft></fa-icon>
 </button>
