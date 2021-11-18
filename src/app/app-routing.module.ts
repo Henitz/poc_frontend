@@ -17,6 +17,10 @@ import { HomeComponent } from './home/home.component';
 import { ConsultaRemedioListComponent } from './consulta/consulta-remedio-list/consulta-remedio-list.component';
 import { ConsultaRemedioFormComponent } from './consulta/consulta-remedio-form/consulta-remedio-form.component';
 
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_services/auth-guard.service';
+import { RegisterComponent } from './register/register.component';
+
 const routes: Routes = [
 
   { path : 'home', component: HomeComponent },
@@ -52,6 +56,12 @@ const routes: Routes = [
   {path: 'consulta-remedio-form' , component: ConsultaRemedioFormComponent},
 
   {path: 'consulta-list', component: ConsultaListComponent},
+
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
+
+
 
 ];
 
