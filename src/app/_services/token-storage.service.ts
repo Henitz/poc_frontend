@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
 const ACCOUNT_ID = 'ACCOUNT_ID';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class TokenStorageService {
-
+  session!: any;
   constructor() { }
 
   signOut() {
@@ -27,7 +28,12 @@ export class TokenStorageService {
   }
 
   public getToken(): string {
-    return sessionStorage.getItem(TOKEN_KEY);
+    //return JSON.parse(sessionStorage.getItem(TOKEN_KEY) || '{}');
+    if( sessionStorage.getItem(TOKEN_KEY) ){
+      this.session = sessionStorage.getItem(TOKEN_KEY)
+      return this.session;
+    }
+    return "";
   }
 
   public saveAccount(accountID: string) {

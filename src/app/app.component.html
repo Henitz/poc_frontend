@@ -1,11 +1,33 @@
-<app-navbar></app-navbar>
-<div id="layoutSidenav">
+<div id="app" class="container">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Register</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+
+<app-navbar *ngIf="isLoggedIn"></app-navbar>
+<div id="layoutSidenav" *ngIf="isLoggedIn">
   <app-sidebar></app-sidebar>
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid">
         <router-outlet></router-outlet>
-        <app-login></app-login>
       </div>
       <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid">

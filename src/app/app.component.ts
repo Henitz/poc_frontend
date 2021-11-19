@@ -18,7 +18,9 @@ export class AppComponent {
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
+    console.log("Situação Login antes: " + this.isLoggedIn)
     this.isLoggedIn = !!this.tokenStorageService.getToken();
+    console.log("Situação Login: " + this.isLoggedIn)
   }
 
   logout() {

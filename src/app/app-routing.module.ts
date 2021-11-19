@@ -23,8 +23,11 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 
-  { path : 'home', component: HomeComponent },
-  { path : '', component: HomeComponent },
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+
+  {path : 'home', component: HomeComponent},
 
   {path: 'medicos/form', component: MedicoFormComponent},
   {path: 'medicos', component: MedicoListComponent},
@@ -55,14 +58,7 @@ const routes: Routes = [
   {path: 'consulta-remedio-form/:id', component: ConsultaRemedioFormComponent},
   {path: 'consulta-remedio-form' , component: ConsultaRemedioFormComponent},
 
-  {path: 'consulta-list', component: ConsultaListComponent},
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
-
-
-
+  {path: 'consulta-list', component: ConsultaListComponent}
 ];
 
 @NgModule({

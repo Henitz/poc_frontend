@@ -18,7 +18,7 @@
             #email="ngModel"
           />
           <div class="alert-danger" *ngIf="f.submitted && email.invalid">
-            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors?.required">Email is required</div>
           </div>
         </div>
         <div class="form-group">
@@ -33,41 +33,13 @@
             #password="ngModel"
           />
           <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-            <div *ngIf="password.errors.required">Password is required</div>
-            <div *ngIf="password.errors.minlength">
+            <div *ngIf="password.errors?.required">Password is required</div>
+            <div *ngIf="password.errors?.minlength">
               Password must be at least 6 characters
             </div>
           </div>
         </div>
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="firstName"
-              [(ngModel)]="form.firstName"
-              required
-              #firstName="ngModel"
-            />
-            <div class="alert-danger" *ngIf="f.submitted && firstName.invalid">
-              <div *ngIf="firstName.errors.required">First name is required</div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="lastName"
-              [(ngModel)]="form.lastName"
-              required
-              #lastName="ngModel"
-            />
-            <div class="alert-danger" *ngIf="f.submitted && lastName.invalid">
-              <div *ngIf="lastName.errors.required">Last name is required</div>
-            </div>
-          </div>
+      
         <div class="form-group">
           <button class="btn btn-primary btn-block">Sign Up</button>
         </div>
