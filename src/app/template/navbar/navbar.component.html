@@ -3,4 +3,9 @@
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
   </button>
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
 </nav>
