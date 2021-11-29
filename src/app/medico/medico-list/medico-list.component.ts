@@ -4,6 +4,7 @@ import { Medicos } from 'src/app/medicos'
 import { Router } from '@angular/router';
 import { faPlusSquare, faEye, faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { Identifiers } from '@angular/compiler/src/render3/r3_identifiers';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-medico-list',
@@ -25,10 +26,15 @@ export class MedicoListComponent implements OnInit {
 
   blockDeletion: Boolean = false;
 
-  constructor(private service: MedicosService, private router: Router) { }
+  accountId = this.tokenStorage.getAccountID();
+
+  constructor(private service: MedicosService,
+    private router: Router,
+    private tokenStorage: TokenStorageService
+    ) { }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((p) => (this.medicos = p));
+    this.service.getAll(this.accountId).subscribe((p) => (this.medicos = p));
   }
   form() {
     this.router.navigate(['medicos/form'])

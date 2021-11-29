@@ -8,6 +8,7 @@ import { Consultas } from 'src/app/consultas';
 import { Medicos } from 'src/app/medicos';
 import { PacientesService } from 'src/app/pacientes.service';
 import { Pacientes } from 'src/app/pacientes';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 
 @Component({
@@ -30,13 +31,14 @@ export class ConsultaFormComponent implements OnInit {
 
   paciente: Pacientes | undefined;
   pacientes: Pacientes[] = [];
-
+  accountId = this.tokenStorage.getAccountID();
   constructor(
     private service: ConsultaService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private medicoService: MedicosService,
     private pacienteService: PacientesService,
+    private tokenStorage: TokenStorageService
 
   ) {
     this.consulta = new Consultas();
@@ -45,7 +47,7 @@ export class ConsultaFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.medicoService
-    .getAll()
+    .getAll(this.accountId)
     .subscribe(
       response => this.medicos = response );
 

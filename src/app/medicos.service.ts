@@ -10,12 +10,12 @@ import { identifierName } from '@angular/compiler';
 })
 export class MedicosService {
 
-  private baseMedicoUrl = environment.baseUrl + "/medicos";
+  private baseMedicoUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Medicos[]> {
-    return this.http.get<Medicos[]>(this.baseMedicoUrl)
+  getAll(accountId: any): Observable<Medicos[]> {
+    return this.http.get<Medicos[]>(this.baseMedicoUrl + `/medicos/${accountId}`)
   }
 
   getOne(id: number) {

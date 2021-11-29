@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Medicos } from 'src/app/medicos';
 import { MedicosService } from 'src/app/medicos.service';
 import { Pacientes } from 'src/app/pacientes';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-consulta-list',
@@ -13,7 +14,7 @@ import { Pacientes } from 'src/app/pacientes';
   styleUrls: ['./consulta-list.component.css']
 })
 export class ConsultaListComponent implements OnInit {
-
+  accountId = this.tokenStorage.getAccountID();
   faPlusSquare = faPlusSquare;
   faEye = faEye;
   faTrash = faTrash;
@@ -36,6 +37,7 @@ export class ConsultaListComponent implements OnInit {
     private service: ConsultaService,
     private router: Router,
     private medicoService: MedicosService,
+    private tokenStorage: TokenStorageService
      ) {
 
       }
@@ -49,7 +51,7 @@ export class ConsultaListComponent implements OnInit {
   form() {
 
     this.medicoService
-    .getAll()
+    .getAll(this.accountId)
     .subscribe(
       response => this.medicos = response );
 

@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  redirectToUrl: string = '/list-account-resumes';
+  //TODO Utilizar esse redirecionamento
+  redirectToUrl: string = '/home';
 
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
