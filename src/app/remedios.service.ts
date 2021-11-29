@@ -9,12 +9,12 @@ import { Remedios } from './remedios';
 })
 export class RemediosService {
 
-  private baseRemedioUrl = environment.baseUrl + "/remedios";
+  private baseRemedioUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Remedios[]> {
-    return this.http.get<Remedios[]>(this.baseRemedioUrl)
+  getAll(accountId: any): Observable<Remedios[]> {
+    return this.http.get<Remedios[]>(this.baseRemedioUrl + `/remedios/${accountId}`)
   }
 
   getOne(id: number) {

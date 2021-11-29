@@ -5,6 +5,7 @@ import { ConsultaService } from 'src/app/consulta.service';
 import { Consultas } from 'src/app/consultas';
 import { Remedios } from 'src/app/remedios';
 import { RemediosService } from 'src/app/remedios.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-consulta-remedio-form',
@@ -20,12 +21,15 @@ export class ConsultaRemedioFormComponent implements OnInit {
   faSave = faSave;
   success: boolean = false;
   remedios: Remedios[] = [];
+  accountId = this.tokenStorage.getAccountID();
 
   constructor(
     private service: ConsultaService,
     private remedioService: RemediosService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private tokenStorage: TokenStorageService
+
   ) {
 
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -33,7 +37,7 @@ export class ConsultaRemedioFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.remedioService.getAll().subscribe((r) => (this.remedios = r));
+    this.remedioService.getAll(this.accountId).subscribe((r) => (this.remedios = r));
     this.getOne(this.id)
   }
 

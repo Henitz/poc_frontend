@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { faEye, faPencilAlt, faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Remedios } from 'src/app/remedios';
 import { RemediosService } from 'src/app/remedios.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-remedio-list',
@@ -25,11 +26,15 @@ export class RemedioListComponent implements OnInit {
 
   blockDeletion: Boolean = false;
 
+accountId = this.tokenStorage.getAccountID();
 
-  constructor(private service: RemediosService, private router: Router) { }
+  constructor(private service: RemediosService,
+    private router: Router,
+    private tokenStorage: TokenStorageService,
+    ) { }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((p) => (this.remedios = p));
+    this.service.getAll(this.accountId).subscribe((p) => (this.remedios = p));
   }
   prepararExibir(remedio: Remedios){
     this.remedioSelecionadoExibir = remedio

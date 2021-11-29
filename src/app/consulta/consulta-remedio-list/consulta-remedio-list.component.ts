@@ -6,6 +6,7 @@ import { Consultas } from 'src/app/consultas';
 import { Remedios } from 'src/app/remedios';
 import { faArrowCircleLeft, faPills, faTrash } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-consulta-remedio-list',
   templateUrl: './consulta-remedio-list.component.html',

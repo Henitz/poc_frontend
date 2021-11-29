@@ -9,12 +9,12 @@ import { Consultas } from './consultas';
 })
 export class ConsultaService {
 
-  private baseConsultaUrl = environment.baseUrl + "/consultas";
+  private baseConsultaUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Consultas[]> {
-    return this.http.get<Consultas[]>(this.baseConsultaUrl)
+  getAll(accountId: any): Observable<Consultas[]> {
+    return this.http.get<Consultas[]>(this.baseConsultaUrl + `/consultas/${accountId}`)
   }
 
   getOne(id: number) {

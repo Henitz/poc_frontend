@@ -43,7 +43,7 @@ export class ConsultaListComponent implements OnInit {
       }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((p) => (this.consultas = p));
+    this.service.getAll(this.accountId).subscribe((p) => (this.consultas = p));
 
 
 
