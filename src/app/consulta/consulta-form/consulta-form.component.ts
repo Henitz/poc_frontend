@@ -52,7 +52,7 @@ export class ConsultaFormComponent implements OnInit {
       response => this.medicos = response );
 
       this.pacienteService
-    .getAll()
+    .getAll(this.accountId)
     .subscribe(
       response => this.pacientes = response );
 

@@ -10,12 +10,12 @@ import { Pacientes } from './pacientes';
 })
 export class PacientesService {
 
-  private basePacienteUrl = environment.baseUrl + "/pacientes";
+  private basePacienteUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pacientes[]> {
-    return this.http.get<Pacientes[]>(this.basePacienteUrl)
+  getAll(accountId: any): Observable<Pacientes[]> {
+    return this.http.get<Pacientes[]>(this.basePacienteUrl + `/pacientes/${accountId}`)
   }
 
   getOne(id: number) {

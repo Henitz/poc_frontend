@@ -3,6 +3,7 @@ import { Pacientes } from './../../pacientes';
 import { Component, OnInit } from '@angular/core';
 import { faEye, faPencilAlt, faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-paciente-list',
@@ -24,12 +25,17 @@ export class PacienteListComponent implements OnInit {
 
   blockDeletion: Boolean = false;
 
+  accountId = this.tokenStorage.getAccountID();
 
 
-  constructor(private service: PacientesService, private router: Router) { }
+
+  constructor(private service: PacientesService,
+    private router: Router,
+    private tokenStorage: TokenStorageService,
+    ) { }
 
   ngOnInit(): void {
-  this.service.getAll().subscribe((p) => (this.pacientes = p));
+  this.service.getAll(this.accountId).subscribe((p) => (this.pacientes = p));
   }
 
   prepararExibir(paciente: Pacientes) {
