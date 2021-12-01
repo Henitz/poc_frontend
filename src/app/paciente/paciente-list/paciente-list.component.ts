@@ -39,29 +39,29 @@ export class PacienteListComponent implements OnInit {
   }
 
   prepararExibir(paciente: Pacientes) {
-    this.pacienteSelecionadoExibir = paciente
+    this.pacienteSelecionadoExibir = paciente;
   }
 
   exibir() {
-    this.router.navigate(['/pacientes/' + this.pacienteSelecionadoExibir.id])
+    this.router.navigate(['/pacientes/' + this.pacienteSelecionadoExibir.id]);
   }
   preparaDelete(paciente: Pacientes){
     this.pacienteSelecionadoDelete = paciente;
   }
 
   delete() {
-    this.service.delete(this.pacienteSelecionadoDelete.id).subscribe(
+    this.service.delete(this.pacienteSelecionadoDelete.id, this.accountId).subscribe(
           m=> { this.blockDeletion = m.block_delecao;
           this.ngOnInit()
         }
       )
   }
 
-  alterar(id: number) {
-    this.router.navigate(['/pacientes/paciente-form/' + id])
+  alterar(id: number, accountId: any) {
+    this.router.navigate(['/pacientes/paciente-form/' + id]);
   }
 
   form() {
-    this.router.navigate(['/pacientes/form'])
+    this.router.navigate(['/pacientes/form']);
   }
 }

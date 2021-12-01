@@ -15,22 +15,22 @@ export class MedicosService {
   constructor(private http: HttpClient) { }
 
   getAll(accountId: any): Observable<Medicos[]> {
-    return this.http.get<Medicos[]>(this.baseMedicoUrl + `/medicos/${accountId}`)
+    return this.http.get<Medicos[]>(this.baseMedicoUrl + `/medicos/${accountId}`);
   }
 
-  getOne(id: number) {
-    return this.http.get<Medicos>(this.baseMedicoUrl + `/${id}`)
+  getOne(id: number, accountId: any) {
+    return this.http.get<Medicos>(this.baseMedicoUrl + `/medicos/${id}` + `/${accountId}`);
   }
 
-  save(medicos: Medicos) {
-    return this.http.post<Medicos>(this.baseMedicoUrl, medicos)
+  save(medicos: Medicos, accountId: any) {
+    return this.http.post<Medicos>(this.baseMedicoUrl + `/medicos` +  `/${accountId}`, medicos);
   }
 
-  delete(id: number) : Observable<any> {
-    return this.http.delete<any>(this.baseMedicoUrl + `/${id}`)
+  delete(id: number, accountId: any) : Observable<any> {
+    return this.http.delete<any>(this.baseMedicoUrl + `/medicos/${id}` + `/${accountId}`);
   }
 
-  update(id: number, medico: Medicos){
-    return this.http.put(this.baseMedicoUrl + `/${id}`, medico)
+  update(id: number, medico: Medicos, accountId: any){
+    return this.http.put(this.baseMedicoUrl + `/medicos/${id}` + `/${accountId}`, medico)
   }
 }

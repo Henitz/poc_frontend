@@ -14,22 +14,22 @@ export class ConsultaService {
   constructor(private http: HttpClient) { }
 
   getAll(accountId: any): Observable<Consultas[]> {
-    return this.http.get<Consultas[]>(this.baseConsultaUrl + `/consultas/${accountId}`)
+    return this.http.get<Consultas[]>(this.baseConsultaUrl + `/consultas/${accountId}`);
   }
 
-  getOne(id: number) {
-    return this.http.get<Consultas>(this.baseConsultaUrl + `/${id}`)
+  getOne(id: number, accountId: any) {
+    return this.http.get<Consultas>(this.baseConsultaUrl + `/consultas/${id}` + `/${accountId}`);
   }
 
-  save(consultas: Consultas) {
-    return this.http.post<Consultas>(this.baseConsultaUrl, consultas)
+  save(consultas: Consultas, accountId: any) {
+    return this.http.post<Consultas>(this.baseConsultaUrl + `/consultas` +  `/${accountId}`, consultas);
   }
 
-  delete(id: number) : Observable<any> {
-    return this.http.delete<any>(this.baseConsultaUrl + `/${id}`)
+  delete(id: number, accountId: any) : Observable<any> {
+    return this.http.delete<any>(this.baseConsultaUrl + `/consultas/${id}` + `/${accountId}`);
   }
 
-  update(id: number, consultas: Consultas){
-    return this.http.put(this.baseConsultaUrl + `/${id}`, consultas)
+  update(id: number, consultas: Consultas, accountId: any){
+    return this.http.put(this.baseConsultaUrl + `/consultas/${id}` + `/${accountId}`, consultas)
   }
 }

@@ -37,18 +37,18 @@ accountId = this.tokenStorage.getAccountID();
     this.service.getAll(this.accountId).subscribe((p) => (this.remedios = p));
   }
   prepararExibir(remedio: Remedios){
-    this.remedioSelecionadoExibir = remedio
+    this.remedioSelecionadoExibir = remedio;
   }
 
   exibir() {
-    this.router.navigate(['/remedios/' + this.remedioSelecionadoExibir.id ])
+    this.router.navigate(['/remedios/' + this.remedioSelecionadoExibir.id ]);
   }
   preparaDelete(remedio: Remedios){
     this.remedioSelecionadoDelete = remedio;
   }
 
   delete() {
-    this.service.delete(this.remedioSelecionadoDelete.id).subscribe(
+    this.service.delete(this.remedioSelecionadoDelete.id, this.accountId).subscribe(
           m=> { this.blockDeletion = m.block_delecao;
           this.ngOnInit()
         }

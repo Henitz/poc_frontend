@@ -38,11 +38,11 @@ export class ConsultaRemedioFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.remedioService.getAll(this.accountId).subscribe((r) => (this.remedios = r));
-    this.getOne(this.id)
+    this.getOne(this.id, this.accountId)
   }
 
-  getOne(id: number){
-    this.service.getOne(id).subscribe(c=>this.consulta=c)
+  getOne(id: number,accountId: any){
+    this.service.getOne(id, this.accountId).subscribe(c=>this.consulta=c)
 
   }
 
@@ -58,7 +58,7 @@ export class ConsultaRemedioFormComponent implements OnInit {
   save() {
     this.consulta.remedios.push(this.remedio);
     this.service
-      .update(this.id, this.consulta)
+      .update(this.id, this.consulta, this.accountId)
         .subscribe(c=>{
           this.redirectTo('/consulta-remedio-list/' + this.consulta.id)
         })

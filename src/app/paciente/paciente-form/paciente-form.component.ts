@@ -7,6 +7,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Planosdesaude } from 'src/app/planosdesaude';
 import { taggedTemplate } from '@angular/compiler/src/output/output_ast';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-paciente-form',
@@ -21,11 +22,12 @@ export class PacienteFormComponent implements OnInit {
   faArrowCircleLeft=faArrowCircleLeft;
   planosdesaude: Planosdesaude[]= [];
   id!: number;
-
+  accountId = this.tokenStorage.getAccountID();
   constructor(
     private service: PacientesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private tokenStorage: TokenStorageService,
   ) {
     this.paciente = new Pacientes();
    }
@@ -37,7 +39,7 @@ export class PacienteFormComponent implements OnInit {
       this.id = urlParams['id']
       if(this.id){
         this.service
-              .getOne(this.id)
+              .getOne(this.id, this.accountId)
               .subscribe(
                 response => this.paciente = response ,
                 errorResponse => this.paciente = new Pacientes()
@@ -63,9 +65,9 @@ export class PacienteFormComponent implements OnInit {
 
   save() {
     if(this.id) {
-      this.service.edit(this.id, this.paciente).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
+      this.service.edit(this.id, this.paciente, this.accountId).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
     }else {
-      this.service.save(this.paciente).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
+      this.service.save(this.paciente, this.accountId).subscribe(p=>{this.router.navigate(['/pacientes']); this.success = true})
     }
 
   }

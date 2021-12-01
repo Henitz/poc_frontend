@@ -71,7 +71,7 @@ export class ConsultaListComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.consultaSelecionadoDelete.id).subscribe(
+    this.service.delete(this.consultaSelecionadoDelete.id, this.accountId).subscribe(
           m=> { this.blockDeletion = m.block_delecao;
           this.ngOnInit()
         }

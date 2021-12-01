@@ -14,19 +14,23 @@ export class RemediosService {
   constructor(private http: HttpClient) { }
 
   getAll(accountId: any): Observable<Remedios[]> {
-    return this.http.get<Remedios[]>(this.baseRemedioUrl + `/remedios/${accountId}`)
+    return this.http.get<Remedios[]>(this.baseRemedioUrl + `/remedios/${accountId}`);
   }
 
-  getOne(id: number) {
-    return this.http.get<Remedios>(this.baseRemedioUrl + `/${id}`)
+  getOne(id: number, accountId: any) {
+    return this.http.get<Remedios>(this.baseRemedioUrl + `/remedios/${id}` + `/${accountId}`);
   }
 
-  save(remedios: Remedios) {
-    return this.http.post<Remedios>(this.baseRemedioUrl, remedios)
+  save(remedios: Remedios, accountId: any) {
+    return this.http.post<Remedios>(this.baseRemedioUrl + `/remedios` +  `/${accountId}`, remedios);
   }
 
-  delete(id: number) : Observable<any> {
-    return this.http.delete<any>(this.baseRemedioUrl + `/${id}`)
+  delete(id: number, accountId: any) : Observable<any> {
+    return this.http.delete<any>(this.baseRemedioUrl + `/remedios/${id}` + `/${accountId}`)
+
+  }
+  update(id: number, remedio: Remedios, accountId: any){
+    return this.http.put(this.baseRemedioUrl + `/remedios/${id}` + `/${accountId}`, remedio)
   }
 
 

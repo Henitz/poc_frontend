@@ -62,7 +62,7 @@ export class ConsultaFormComponent implements OnInit {
       this.id = urlParams['id']
       if(this.id){
         this.service
-              .getOne(this.id)
+              .getOne(this.id, this.accountId)
               .subscribe(
                 response => this.consulta = response ,
                 errorResponse => this.consulta = new Consultas()
@@ -76,11 +76,11 @@ export class ConsultaFormComponent implements OnInit {
     save() {
       if(!this.id){
         console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
-        this.service.save(this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
+        this.service.save(this.consulta,this.accountId).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
       }
       if(this.id){
         console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
-        this.service.update(this.id, this.consulta).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
+        this.service.update(this.id, this.consulta,this.accountId).subscribe(c=>{this.router.navigate(['/consultas']); this.success = true})
       }
     }
 

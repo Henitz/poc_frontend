@@ -5,7 +5,7 @@ import { ConsultaService } from 'src/app/consulta.service';
 import { Consultas } from 'src/app/consultas';
 import { Remedios } from 'src/app/remedios';
 import { faArrowCircleLeft, faPills, faTrash } from '@fortawesome/free-solid-svg-icons';
-
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-consulta-remedio-list',
@@ -21,21 +21,24 @@ export class ConsultaRemedioListComponent implements OnInit {
   faArrowCircleLeft = faArrowCircleLeft;
   faPills = faPills;
   faTrash = faTrash;
+  accountId = this.tokenStorage.getAccountID();
 
   constructor(
     private service: ConsultaService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private tokenStorage: TokenStorageService,
+
   ) {
     this.id = this.activatedRoute.snapshot.params['id'];
    }
 
   ngOnInit(): void {
-    this.getOne(this.id)
+    this.getOne(this.id, this.accountId)
   }
 
-  getOne(id: number){
-    this.service.getOne(id).subscribe(c=>this.consulta=c)
+  getOne(id: number,accountId: any){
+    this.service.getOne(id, accountId).subscribe(c=>this.consulta=c)
 
   }
 
@@ -48,7 +51,7 @@ export class ConsultaRemedioListComponent implements OnInit {
     this.position  = this.consulta.remedios.indexOf(remedio);
     this.consulta.remedios.splice(this.position,1);
     this.service
-      .update(this.id, this.consulta)
+      .update(this.id, this.consulta, this.accountId)
       .subscribe(c=>{
         this.redirectTo('/consulta-remedio-list/' + this.consulta.id)
       })

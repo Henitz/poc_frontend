@@ -18,20 +18,20 @@ export class PacientesService {
     return this.http.get<Pacientes[]>(this.basePacienteUrl + `/pacientes/${accountId}`)
   }
 
-  getOne(id: number) {
-    return this.http.get<Pacientes>(this.basePacienteUrl + `/${id}`)
+  getOne(id: number, accountId: any) {
+    return this.http.get<Pacientes>(this.basePacienteUrl   + `/pacientes/${id}` + `/${accountId}`)
   }
 
-  save(pacientes: Pacientes) {
-    return this.http.post<Pacientes>(this.basePacienteUrl, pacientes)
+  save(pacientes: Pacientes, accountId: any) {
+    return this.http.post<Pacientes>(this.basePacienteUrl + `/pacientes` +  `/${accountId}`, pacientes)
   }
 
-  edit(id: number, pacientes: Pacientes) {
-    return this.http.put(this.basePacienteUrl + `/${id}`, pacientes)
+  edit(id: number, pacientes: Pacientes, accountId: any) {
+    return this.http.put(this.basePacienteUrl +  `/pacientes/${id}` + `/${accountId}`, pacientes)
    }
 
-  delete(id: number) : Observable<any> {
-    return this.http.delete<any>(this.basePacienteUrl + `/${id}`)
+  delete(id: number, accountId: any) : Observable<any> {
+    return this.http.delete<any>(this.basePacienteUrl + `/pacientes/${id}` + `/${accountId}`)
   }
 
 }

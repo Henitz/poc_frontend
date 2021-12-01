@@ -30,7 +30,7 @@ export class MedicoListComponent implements OnInit {
 
   constructor(private service: MedicosService,
     private router: Router,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
     ) { }
 
   ngOnInit(): void {
@@ -52,14 +52,14 @@ export class MedicoListComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.medicoSelecionadoDelete.id).subscribe(
+    this.service.delete(this.medicoSelecionadoDelete.id, this.accountId).subscribe(
           m=> { this.blockDeletion = m.block_delecao;
           this.ngOnInit()
         }
       )
   }
 
-  alterar(id: number) {
+  alterar(id: number, accountId: any) {
     console.log(id);
     console.log('Teste editar');
     this.router.navigate(['/medicos/medico-form/' + id]);

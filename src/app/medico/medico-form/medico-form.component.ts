@@ -7,6 +7,7 @@ import { Especialidade } from 'src/app/especialidade';
 
 import { Medicos } from 'src/app/medicos';
 import { MedicosService } from 'src/app/medicos.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-medico-form',
@@ -24,11 +25,12 @@ export class MedicoFormComponent implements OnInit {
 
   enumEspecialidade = EnumEspecialidade;
   enumKeys = Object.keys(EnumEspecialidade) as (keyof typeof EnumEspecialidade)[];
-
+  accountId = this.tokenStorage.getAccountID();
   constructor(
     private service: MedicosService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private tokenStorage: TokenStorageService,
   ) {
     this.enumKeys=Object.keys(EnumEspecialidade) as (keyof typeof EnumEspecialidade)[];
 
@@ -41,7 +43,7 @@ export class MedicoFormComponent implements OnInit {
       this.id = urlParams['id']
       if(this.id){
         this.service
-              .getOne(this.id)
+              .getOne(this.id, this.accountId)
               .subscribe(
                 response => this.medico = response ,
                 errorResponse => this.medico = new Medicos()
@@ -65,11 +67,11 @@ export class MedicoFormComponent implements OnInit {
       console.log(this.medico)
       if(!this.id){
         console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
-        this.service.save(this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+        this.service.save(this.medico, this.accountId).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
       }
       if(this.id){
         console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
-        this.service.update(this.id, this.medico).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
+        this.service.update(this.id, this.medico, this.accountId).subscribe(c=>{this.router.navigate(['/medicos']); this.success = true})
       }
     }
 }
