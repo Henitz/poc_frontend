@@ -19,7 +19,8 @@ export class MedicosService {
   }
 
   getOne(id: number, accountId: any) {
-    return this.http.get<Medicos>(this.baseMedicoUrl + `/medicos/${id}` + `/${accountId}`);
+    console.log("aqui");
+    return this.http.get<Medicos>(this.baseMedicoUrl   + `/medicos/${id}` + `/${accountId}`);
   }
 
   save(medicos: Medicos, accountId: any) {

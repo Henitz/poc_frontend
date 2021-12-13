@@ -31,9 +31,11 @@ const routes: Routes = [
 
   {path: 'medicos/form', component: MedicoFormComponent},
   {path: 'medicos', component: MedicoListComponent},
-  {path: 'medicos/medico-list', component: MedicoListComponent},
-  {path: 'medicos/medico-form/:id', component: MedicoFormComponent},
   {path: 'medicos/:id', component: MedicoOneComponent},
+  {path: 'medicos/medico-form/:id', component: MedicoFormComponent},
+  /* {path: 'medicos/medico-list', component: MedicoListComponent}, */
+
+
 
 
   {path: 'pacientes/form', component: PacienteFormComponent},

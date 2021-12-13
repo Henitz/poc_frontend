@@ -31,6 +31,7 @@ export class MedicoOneComponent implements OnInit {
   }
 
   getOne(id: number, accountId: any){
+    console.log("aqui2")
     this.service.getOne(id, this.accountId).subscribe(c=>this.medico=c)
   }
 

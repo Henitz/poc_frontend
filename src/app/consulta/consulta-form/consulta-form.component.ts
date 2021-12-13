@@ -65,9 +65,10 @@ export class ConsultaFormComponent implements OnInit {
               .getOne(this.id, this.accountId)
               .subscribe(
                 response => this.consulta = response ,
-                errorResponse => this.consulta = new Consultas()
+                errorResponse => this.consulta = new Consultas(),
               )
       }
+
     })
 
 
