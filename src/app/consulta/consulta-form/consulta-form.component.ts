@@ -10,14 +10,12 @@ import { PacientesService } from 'src/app/pacientes.service';
 import { Pacientes } from 'src/app/pacientes';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
-
 @Component({
   selector: 'app-consulta-form',
   templateUrl: './consulta-form.component.html',
   styleUrls: ['./consulta-form.component.css']
 })
 export class ConsultaFormComponent implements OnInit {
-
 
   consulta!: Consultas;
   success: boolean = false;
@@ -64,7 +62,7 @@ export class ConsultaFormComponent implements OnInit {
         this.service
               .getOne(this.id, this.accountId)
               .subscribe(
-                response => this.consulta = response ,
+                response => {this.consulta = response, this.consulta.data},
                 errorResponse => this.consulta = new Consultas(),
               )
       }

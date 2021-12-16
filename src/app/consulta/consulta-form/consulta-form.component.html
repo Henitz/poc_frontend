@@ -4,12 +4,13 @@
     <div class="row">
       <div class="col">
         <label>Data</label>
-        <input type="date" id="data" class="form-control" datetime="dd-MM-yyyy" required [(ngModel)]="consulta.data" name="data"
-          #nome="ngModel" placeholder="Data da Consulta">
+        <input type="date" id="data" class="form-control" required  name="data"
+         [ngModel]="consulta.data | date:'yyyy-MM-dd'" (ngModelChange)="consulta.data=$event"
+        #nome="ngModel" placeholder="Data da Consulta">
       </div>
     </div>
 
-    {{consulta.data  | date:'yyyy-MM-dd'}}
+
     <div class="col-md-6">
       <div class="form-group">
         <label>Medico: </label>
