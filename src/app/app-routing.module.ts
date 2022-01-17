@@ -1,3 +1,4 @@
+import { DashComponent } from './dash/dash.component';
 import { ConsultaOneComponent } from './consulta/consulta-one/consulta-one.component';
 import { ConsultaListComponent } from './consulta/consulta-list/consulta-list.component';
 
@@ -33,10 +34,8 @@ const routes: Routes = [
   {path: 'medicos', component: MedicoListComponent},
   {path: 'medicos/:id', component: MedicoOneComponent},
   {path: 'medicos/medico-form/:id', component: MedicoFormComponent},
+
   /* {path: 'medicos/medico-list', component: MedicoListComponent}, */
-
-
-
 
   {path: 'pacientes/form', component: PacienteFormComponent},
   {path: 'pacientes', component: PacienteListComponent},
@@ -60,7 +59,9 @@ const routes: Routes = [
   {path: 'consulta-remedio-form/:id', component: ConsultaRemedioFormComponent},
   {path: 'consulta-remedio-form' , component: ConsultaRemedioFormComponent},
 
-  {path: 'consulta-list', component: ConsultaListComponent}
+  {path: 'consulta-list', component: ConsultaListComponent},
+
+  {path: 'dash', component: DashComponent}
 ];
 
 @NgModule({

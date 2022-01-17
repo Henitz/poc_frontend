@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { DashComponent } from './dash/dash.component';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './_services/auth-guard.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +28,9 @@ import { ConsultaRemedioFormComponent } from './consulta/consulta-remedio-form/c
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 
@@ -51,18 +56,33 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ConsultaRemedioListComponent,
     ConsultaRemedioFormComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BarChartComponent,
+    DashComponent,
+    LineChartComponent
+
+
   ],
+
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule,
+
+
 
   ],
   providers: [AuthGuard, authInterceptorProviders],
   bootstrap: [AppComponent]
+
+
 })
 export class AppModule { }

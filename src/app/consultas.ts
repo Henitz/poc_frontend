@@ -8,4 +8,5 @@ export class Consultas {
   paciente = new Pacientes();
   //remedios = new List<Remedios>();
   remedios!: Remedios[];
+  total!: number;
 }

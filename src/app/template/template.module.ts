@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
 
-    SidebarComponent
+    /* SidebarComponent */
   ],
   imports: [
     CommonModule,
@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
 
-    SidebarComponent
+    /* SidebarComponent */
   ]
 })
 export class TemplateModule { }
