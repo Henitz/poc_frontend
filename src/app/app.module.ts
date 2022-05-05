@@ -30,6 +30,7 @@ import { RegisterComponent } from './register/register.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -76,6 +77,7 @@ import { ChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     HttpClientModule,
     ChartsModule,
+    BrowserAnimationsModule,
 
 
 
